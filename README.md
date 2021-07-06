@@ -9,6 +9,7 @@ then their our bot name will be
 and then type in $hello in a server
 and then bot will reply the message
 
+client.run('token')
 
 check if the code is not working
 then a new token is generated
