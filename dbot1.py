@@ -12,20 +12,30 @@ async def on_ready():
 SITE = StackAPI('stackoverflow')
 SITE.key = "v)UC0zDZ3RYnXd2OpNv)sA(("
 SITE.access_token = 'zpDjJVUu0yJh2dkVQ7UWyQ))'
-users = SITE.fetch('users/{ids}/notifications', ids=[16357192])
 
 
-@client.event
-async def on_message(message, arg1, arg2):
+
+#@client.event
+async def on_message(message,*, user_data):
+    SITE = StackAPI('stackoverflow')
+    SITE.key = "v)UC0zDZ3RYnXd2OpNv)sA(("
+    SITE.access_token = 'zpDjJVUu0yJh2dkVQ7UWyQ))'
+
     '''if arg1 or arg2 is None:
         client.send_message(ctx.message.channel, "=cw <Carte> <Heure>")
     else:'''
+    if message.content == "$msg":
+        users = SITE.fetch('users/{ids}/notifications', ids=[16357192])
+        user_data = str(users)
+        #em = discord.Embed(title= SITE, description=user_data, color=0xEE8700)
+        await message.channel.send(user_data)
 
-        desc = "{}{}".format(arg1,arg2)
-        em = discord.Embed(title= users, description=desc, colorsys=0x57FE01)
-    
-        if message.content == "$msg":
-            await message.channel.send(client.get_channel(860120820532510752), embed=em)
-
-
-client.run('ODYwMTE4Mzc5OTY4MjAwNzA0.YN2lqg.vjGJMNbmlc43a_I7xQUcx6V0J3s')
+'''
+@client.event
+async def on_message(message, *user_msg):
+    if message.content == "$msg":
+        users = SITE.fetch('users/{ids}/notifications', ids=[16357192])
+        user_msg = str(users)
+        await message.send("Data fetch -->" + user_msg)
+'''
+client.run('ODYwMTE4Mzc5OTY4MjAwNzA0.YN2lqg._bs_fEJE4o3V-7fZiXhbytMfuo0')
