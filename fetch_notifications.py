@@ -27,5 +27,6 @@ for index,value in enumerate(user_notifications['items']): #index tell the index
         user_notify_type.append(user_notifications['items'][index]['notification_type'])
 
 #print(user_notify_type)
-print(user_notify_msg)
+def stack_notify_msg():
+    return user_notify_msg
 
