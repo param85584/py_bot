@@ -1,0 +1,10 @@
+[
+  {
+    "type": "badge",
+    "text": "You got this badge"
+  },
+  {
+    "type": "generic",
+    "text": None
+  }
+]
